@@ -34,15 +34,15 @@ public class MembershipController {
         return service.save(membership);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Membership> update(@PathVariable Long id, @RequestBody Membership updatedMembership) {
-//        return service.findById(id)
-//                .map(existing -> {
-//                    updatedMembership.setMembershipid(id);
-//                    return ResponseEntity.ok(service.save(updatedMembership));
-//                })
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Membership> update(@PathVariable Long id, @RequestBody Membership updatedMembership) {
+        return service.findById(id)
+                .map(existing -> {
+                    updatedMembership.setMembershipid(id);
+                    return ResponseEntity.ok(service.save(updatedMembership));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

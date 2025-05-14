@@ -34,15 +34,15 @@ public class TrainingBookingController {
         return service.save(booking);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<TrainingBooking> update(@PathVariable Long id, @RequestBody TrainingBooking updatedBooking) {
-//        return service.findById(id)
-//                .map(existing -> {
-//                    updatedBooking.setBookingid(id);
-//                    return ResponseEntity.ok(service.save(updatedBooking));
-//                })
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<TrainingBooking> update(@PathVariable Long id, @RequestBody TrainingBooking updatedBooking) {
+        return service.findById(id)
+                .map(existing -> {
+                    updatedBooking.setBookingid(id);
+                    return ResponseEntity.ok(service.save(updatedBooking));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

@@ -34,15 +34,15 @@ public class DiscountController {
         return service.save(discount);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Discount> update(@PathVariable Long id, @RequestBody Discount updated) {
-//        return service.findById(id)
-//                .map(existing -> {
-//                    updated.setDiscountId(id);
-//                    return ResponseEntity.ok(service.save(updated));
-//                })
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Discount> update(@PathVariable Long id, @RequestBody Discount updated) {
+        return service.findById(id)
+                .map(existing -> {
+                    updated.setDiscountId(id);
+                    return ResponseEntity.ok(service.save(updated));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

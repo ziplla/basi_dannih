@@ -34,15 +34,15 @@ public class RoleController {
         return service.save(role);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Role> update(@PathVariable Long id, @RequestBody Role updatedRole) {
-//        return service.findById(id)
-//                .map(existing -> {
-//                    updatedRole.setRoleid(id);
-//                    return ResponseEntity.ok(service.save(updatedRole));
-//                })
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Role> update(@PathVariable Long id, @RequestBody Role updatedRole) {
+        return service.findById(id)
+                .map(existing -> {
+                    updatedRole.setRoleid(id);
+                    return ResponseEntity.ok(service.save(updatedRole));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

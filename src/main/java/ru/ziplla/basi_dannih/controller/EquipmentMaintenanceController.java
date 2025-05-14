@@ -34,15 +34,15 @@ public class EquipmentMaintenanceController {
         return service.save(maintenance);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<EquipmentMaintenance> update(@PathVariable Long id, @RequestBody EquipmentMaintenance updatedMaintenance) {
-//        return service.findById(id)
-//                .map(existing -> {
-//                    updatedMaintenance.setMaintenanceid(id);
-//                    return ResponseEntity.ok(service.save(updatedMaintenance));
-//                })
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<EquipmentMaintenance> update(@PathVariable Long id, @RequestBody EquipmentMaintenance updatedMaintenance) {
+        return service.findById(id)
+                .map(existing -> {
+                    updatedMaintenance.setMaintenanceid(id);
+                    return ResponseEntity.ok(service.save(updatedMaintenance));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

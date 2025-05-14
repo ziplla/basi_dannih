@@ -34,15 +34,15 @@ public class TrainerReviewController {
         return service.save(trainerReview);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<TrainerReview> update(@PathVariable Long id, @RequestBody TrainerReview updated) {
-//        return service.findById(id)
-//                .map(existing -> {
-//                    updated.setReviewId(id);
-//                    return ResponseEntity.ok(service.save(updated));
-//                })
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<TrainerReview> update(@PathVariable Long id, @RequestBody TrainerReview updated) {
+        return service.findById(id)
+                .map(existing -> {
+                    updated.setReviewId(id);
+                    return ResponseEntity.ok(service.save(updated));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

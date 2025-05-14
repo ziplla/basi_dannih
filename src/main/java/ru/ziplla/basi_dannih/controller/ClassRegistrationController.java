@@ -34,15 +34,15 @@ public class ClassRegistrationController {
         return service.save(registration);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<ClassRegistration> update(@PathVariable Long id, @RequestBody ClassRegistration updated) {
-//        return service.findById(id)
-//                .map(existing -> {
-//                    updated.setRegistrationId(id);
-//                    return ResponseEntity.ok(service.save(updated));
-//                })
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<ClassRegistration> update(@PathVariable Long id, @RequestBody ClassRegistration updated) {
+        return service.findById(id)
+                .map(existing -> {
+                    updated.setRegistrationId(id);
+                    return ResponseEntity.ok(service.save(updated));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

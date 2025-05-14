@@ -34,15 +34,15 @@ public class FinancialTransactionController {
         return service.save(transaction);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<FinancialTransaction> update(@PathVariable Long id, @RequestBody FinancialTransaction updatedTransaction) {
-//        return service.findById(id)
-//                .map(existing -> {
-//                    updatedTransaction.setTransactionid(id);
-//                    return ResponseEntity.ok(service.save(updatedTransaction));
-//                })
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<FinancialTransaction> update(@PathVariable Long id, @RequestBody FinancialTransaction updatedTransaction) {
+        return service.findById(id)
+                .map(existing -> {
+                    updatedTransaction.setTransactionid(id);
+                    return ResponseEntity.ok(service.save(updatedTransaction));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

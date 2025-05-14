@@ -34,15 +34,15 @@ public class ScheduleController {
         return service.save(schedule);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Schedule> update(@PathVariable Long id, @RequestBody Schedule updatedSchedule) {
-//        return service.findById(id)
-//                .map(existing -> {
-//                    updatedSchedule.setScheduleid(id);
-//                    return ResponseEntity.ok(service.save(updatedSchedule));
-//                })
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Schedule> update(@PathVariable Long id, @RequestBody Schedule updatedSchedule) {
+        return service.findById(id)
+                .map(existing -> {
+                    updatedSchedule.setScheduleid(id);
+                    return ResponseEntity.ok(service.save(updatedSchedule));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

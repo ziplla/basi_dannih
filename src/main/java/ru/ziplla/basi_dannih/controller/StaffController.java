@@ -34,15 +34,15 @@ public class StaffController {
         return service.save(staff);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Staff> update(@PathVariable Long id, @RequestBody Staff updatedStaff) {
-//        return service.findById(id)
-//                .map(existing -> {
-//                    updatedStaff.setStaffid(id);
-//                    return ResponseEntity.ok(service.save(updatedStaff));
-//                })
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Staff> update(@PathVariable Long id, @RequestBody Staff updatedStaff) {
+        return service.findById(id)
+                .map(existing -> {
+                    updatedStaff.setStaffid(id);
+                    return ResponseEntity.ok(service.save(updatedStaff));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

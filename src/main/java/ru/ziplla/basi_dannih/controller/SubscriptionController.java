@@ -34,15 +34,15 @@ public class SubscriptionController {
         return service.save(subscription);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Subscription> update(@PathVariable Long id, @RequestBody Subscription updated) {
-//        return service.findById(id)
-//                .map(existing -> {
-//                    updated.setSubscriptionid(id);
-//                    return ResponseEntity.ok(service.save(updated));
-//                })
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Subscription> update(@PathVariable Long id, @RequestBody Subscription updated) {
+        return service.findById(id)
+                .map(existing -> {
+                    updated.setSubscriptionid(id);
+                    return ResponseEntity.ok(service.save(updated));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

@@ -34,15 +34,15 @@ public class AttendanceController {
         return service.save(attendance);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Attendance> update(@PathVariable Long id, @RequestBody Attendance updated) {
-//        return service.findById(id)
-//                .map(existing -> {
-//                    updated.setAttendanceId(id);
-//                    return ResponseEntity.ok(service.save(updated));
-//                })
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Attendance> update(@PathVariable Long id, @RequestBody Attendance updated) {
+        return service.findById(id)
+                .map(existing -> {
+                    updated.setAttendanceId(id);
+                    return ResponseEntity.ok(service.save(updated));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

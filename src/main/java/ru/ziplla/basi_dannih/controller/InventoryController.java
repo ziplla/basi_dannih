@@ -35,15 +35,15 @@ public class InventoryController {
         return service.save(inventory);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Inventory> update(@PathVariable Long id, @RequestBody Inventory updatedInventory) {
-//        return service.findById(id)
-//                .map(existing -> {
-//                    updatedInventory.setInventoryid(id);
-//                    return ResponseEntity.ok(service.save(updatedInventory));
-//                })
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Inventory> update(@PathVariable Long id, @RequestBody Inventory updatedInventory) {
+        return service.findById(id)
+                .map(existing -> {
+                    updatedInventory.setInventoryid(id);
+                    return ResponseEntity.ok(service.save(updatedInventory));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
